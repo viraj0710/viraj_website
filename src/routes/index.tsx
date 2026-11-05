@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ExternalLink, Github } from "lucide-react";
-import portrait from "@/assets/viraj-portrait.png.asset.json";
+import portrait from "@/assets/viraj-portrait.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -168,9 +168,9 @@ function Index() {
               <div className="absolute -inset-3 rounded-full bg-accent" />
               <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-background shadow-xl">
                 <img
-                  src={portrait.url}
+                  src={portrait}
                   alt="Portrait of Viraj Darekar"
-                  className="h-full w-full -translate-x-[14%] translate-y-[16%] scale-[1.34] object-cover object-center"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
             </div>
