@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 import portrait from "@/assets/viraj-portrait.jpeg";
 
 export const Route = createFileRoute("/")({
@@ -114,6 +114,12 @@ const nav = [
   ["Publications", "#publications"],
   ["Achievements", "#achievements"],
   ["Skills", "#skills"],
+  ["Contact", "#contact"],
+];
+
+const socials = [
+  { label: "GitHub", handle: "github.com/viraj0710", href: "https://github.com/viraj0710", Icon: Github },
+  { label: "LinkedIn", handle: "in/viraj-darekar-5045763b8", href: "https://www.linkedin.com/in/viraj-darekar-5045763b8/", Icon: Linkedin },
 ];
 
 function Section({ id, num, title, children }: { id: string; num: string; title: string; children: React.ReactNode }) {
@@ -287,6 +293,41 @@ function Index() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </Section>
+
+        <Section id="contact" num="06" title="Get in touch">
+          <p className="mb-8 max-w-xl text-lg text-muted-foreground">
+            The best way to reach me is by email, or find me on GitHub and LinkedIn.
+          </p>
+          <div className="space-y-4">
+            <a
+              href="mailto:darekarviraj2@gmail.com"
+              className="group inline-flex max-w-full items-center gap-3 rounded-2xl border border-border bg-card px-6 py-5 transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg md:gap-4 md:px-8 md:py-6"
+            >
+              <Mail size={22} className="shrink-0 text-primary" aria-hidden="true" />
+              <span className="min-w-0 font-display text-xl transition-colors [overflow-wrap:anywhere] group-hover:text-primary sm:text-3xl md:text-4xl">
+                darekarviraj2@gmail.com
+              </span>
+            </a>
+            <div className="grid gap-4 sm:max-w-xl sm:grid-cols-2">
+              {socials.map(({ label, handle, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Viraj Darekar on ${label} (opens in a new tab)`}
+                  className="group flex min-w-0 items-center gap-3 rounded-2xl border border-border bg-card px-6 py-5 transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg"
+                >
+                  <Icon size={22} className="shrink-0 text-primary" aria-hidden="true" />
+                  <div className="min-w-0">
+                    <div className="font-display text-xl transition-colors group-hover:text-primary">{label}</div>
+                    <div className="font-mono text-xs text-muted-foreground [overflow-wrap:anywhere]">{handle}</div>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </Section>
